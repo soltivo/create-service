@@ -4,7 +4,7 @@
   "description": "A node CLI to create a new NodeJS project with the best folder structure ever created",
   "main": "src/index.js",
   "bin": {
-    "@soltivo/create-service": "bin/create-service",
+    "@soltivo/create-service-soltivo": "bin/create-service",
     "create-service": "bin/create-service"
   },
   "publishConfig": {
@@ -15,7 +15,7 @@
   },
   "keywords": [
     "cli",
-    "create-project"
+    "create-service"
   ],
   "author": "Benjamin Filiatrault",
   "license": "MIT",
