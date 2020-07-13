@@ -6,7 +6,7 @@ function parseArgumentsIntoOptions(rawArgs) {
     return {
         skipPrompts: false,
         git: true,
-        template: 'Javascript',
+        template: 'JavaScript',
         runInstall: true
     };
 }
