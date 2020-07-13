@@ -1,0 +1,1 @@
+// init your app here and console log the time of the start
