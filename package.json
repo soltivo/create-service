@@ -1,10 +1,10 @@
 {
-  "name": "create-service",
+  "name": "create-service-soltivo",
   "version": "1.0.0",
   "description": "A node CLI to create a new NodeJS project with the best folder structure ever created",
   "main": "src/index.js",
   "bin": {
-    "@soltivo/create-service-soltivo": "bin/create-service",
+    "@soltivo/create-service": "bin/create-service",
     "create-service": "bin/create-service"
   },
   "publishConfig": {
