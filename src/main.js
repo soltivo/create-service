@@ -70,7 +70,10 @@ export async function createProject(options) {
   ]);
 
   await tasks.run();
-
   console.log('%s Project ready', chalk.green.bold('DONE'));
+  console.log(('\n'),
+    chalk.bgRed.black
+    ` Happy Coding Soltivorian ! `, chalk('🦄'), ('\n')
+  );
   return true;
 }
