@@ -7,7 +7,8 @@ function parseArgumentsIntoOptions(rawArgs) {
         skipPrompts: false,
         git: true,
         template: 'javascript',
-        runInstall: true
+        runInstall: true,
+        directory: rawArgs[2]
     };
 }
 
@@ -16,7 +17,8 @@ async function promptForMissingOptions(options) {
     return {
         ...options,
         template: options.template,
-        git: options.git
+        git: options.git,
+        targetDirectory: options.directory
     };
 }
 
