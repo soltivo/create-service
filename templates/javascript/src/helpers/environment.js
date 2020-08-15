@@ -22,7 +22,7 @@ let load = async (environment) => {
                 API_LINK: 'http://localhost:3000'
             };
             
-        } else if(environment = 'QA') {
+        } else if(environment == 'QA') {
             global.environment.name = 'QA'
             const secretsManager = require('./secretsManager');
             await secretsManager.loadSecrets('dev/keys', 'AWS');
