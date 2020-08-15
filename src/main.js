@@ -53,7 +53,8 @@ export async function createProject(options) {
     },
     {
       title: 'Initialize git',
-      task: () => initGit(options),
+      // Rename the gitignore file for .gitignore and init git repo
+      task: () => fs.renameSync(`${options.targetDirectory}/gitignore`, `${options.targetDirectory}/.gitignore`, initGit(options)),
       enabled: () => options.git,
     },
     {
@@ -70,10 +71,11 @@ export async function createProject(options) {
   ]);
 
   await tasks.run();
+
   console.log('%s Project ready', chalk.green.bold('DONE'));
   console.log(('\n'),
     chalk.bgRed.black
-    ` Happy Coding Soltivorian ! `, chalk('🦄'), ('\n')
+      ` Happy Coding Soltivorian ! `, chalk('🦄'), ('\n')
   );
   return true;
 }
