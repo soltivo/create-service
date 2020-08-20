@@ -1,18 +1,20 @@
-var AWS = require('aws-sdk');
-var region = 'us-east-1';
+const AWS = require('aws-sdk');
+const region = process.env.AWS_REGION || 'us-east-1';
 
 let loadSecrets = async (secretName, id) => {
     // Create a Secrets Manager client
-    var client = new AWS.SecretsManager({
+    const client = new AWS.SecretsManager({
         region: region
     });
 
-    if(!global.environment.secrets) {
-        global.environment.secrets = [];
+    // Add key if not present
+    if(!global[id]) {
+        global[id] = {};
     }
-
-    if(global.environment.secrets[id]) {
-        return global.environment.secrets[id];
+    
+    // Check if already loaded
+    if(global[id] && global[id].secrets) {
+        return global[id].secrets;
     }
 
     let secrets;
@@ -29,8 +31,8 @@ let loadSecrets = async (secretName, id) => {
             throw err;
         });
 
-    global.environment.secrets[id] = JSON.parse(secrets);
-    return global.environment.secrets[id];
+    global[id].secrets = JSON.parse(secrets);
+    return global[id].secrets;
 }
 
 module.exports = { loadSecrets }
