@@ -5,11 +5,10 @@ const environment = require('./helpers/environment');
 environment.load().then(function() {
     // Init AWS config
     const AWS = require("aws-sdk");
-    const region = process.env.AWS_REGION || 'us-east-1';
     const config = new AWS.Config({
-        accessKeyId: global['AWS'].AWS_ACCESS_KEY_ID,
-        secretAccessKey: global['AWS'].AWS_SECRET_ACCESS_KEY,
-        region: region
+        accessKeyId: global.AWS.secrets.AWS_ACCESS_KEY_ID,
+        secretAccessKey: global.AWS.secrets.AWS_SECRET_ACCESS_KEY,
+        region: global.AWS.region
     });
     AWS.config.update(config);
     
