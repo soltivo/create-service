@@ -22,6 +22,22 @@ async function initGit(options) {
   if (result.failed) {
     return Promise.reject(new Error('Failed to initialize git'));
   }
+  const resultGitAdd = await execa('git add', ['.'], {
+    cwd: options.targetDirectory,
+  });
+
+  if (resultGitAdd.failed) {
+    return Promise.reject(new Error('Failed to add files to git'));
+  }
+
+  const resultGitCommit = await execa('git commit', ['-m "Service Initialized"'], {
+    cwd: options.targetDirectory,
+  });
+
+  if (resultGitCommit.failed) {
+    return Promise.reject(new Error('Failed to commit files to master branch'));
+  }
+
   return;
 }
 
@@ -74,7 +90,7 @@ export async function createProject(options) {
 
   console.log('%s Project ready', chalk.green.bold('DONE'));
   console.log(('\n'),
-    chalk.bgRed.black
+    chalk.bgRed.white
       ` Happy Coding Soltivorian ! `, chalk('🦄'), ('\n')
   );
   return true;
