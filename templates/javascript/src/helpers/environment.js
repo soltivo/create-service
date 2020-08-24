@@ -33,9 +33,10 @@ exports.load = async () => {
         if(this.isLocalEnvironment()) {
             global.AWS.region = 'local.region';
             global.AWS.secrets = {
-                AWS_ACCESS_KEY_ID: 'access-key-id',
-                AWS_SECRET_ACCESS_KEY: 'secret-access-key',
-                API_LINK: 'http://localhost:3000'
+                AWS_ACCESS_KEY_ID: 'access-key-id', // don't touch
+                AWS_SECRET_ACCESS_KEY: 'secret-access-key', // don't touch
+                
+                API_LINK: 'http://localhost:3000' // Change that for the right link 
             };
             global.STRIPE.secrets = {
                 STRIPE_SECRET_KEY: 'secret_key',
