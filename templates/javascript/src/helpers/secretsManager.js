@@ -1,7 +1,6 @@
 const AWS = require('aws-sdk');
-const region = process.env.AWS_REGION || 'us-east-1';
 
-let loadSecrets = async (secretName, id) => {
+let loadSecrets = async (region, secretName, id) => {
     // Create a Secrets Manager client
     const client = new AWS.SecretsManager({
         region: region

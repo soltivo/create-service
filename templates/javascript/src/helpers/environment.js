@@ -46,8 +46,8 @@ exports.load = async () => {
         // If it is wanted to run local with stage environment
         } else if(this.isLocalWithAWSEnvironment()) {
             const secretsManager = require('./secretsManager');
-            await secretsManager.loadSecrets('dev/keys', 'AWS');
-            await secretsManager.loadSecrets('dev/stripe', 'STRIPE');
+            await secretsManager.loadSecrets(region, 'dev/keys', 'AWS');
+            await secretsManager.loadSecrets(region, 'dev/stripe', 'STRIPE');
             global.AWS.region = region;
         }
     }

@@ -37,7 +37,8 @@ git checkout -b <develop> <master> # Create the develop branch
 
 1. Open the file `src/helpers/environment.js`
 
-2. Make sure to change the keys with your keys and `API_LINK` for the right value.
+2. You can change the keys with your keys and `API_LINK` for the value you want.
+Since you are running on local, defined key values will work.
 
 ```js
 global.AWS.secrets = {
@@ -51,7 +52,7 @@ global.STRIPE.secrets = {
     STRIPE_CLIENT_ID: 'YOUR KEY'
 }
 ```
-3. If you need to change the region of your service, go in the file `src/helpers/secretsManager.js` and change
+3. If you need to change the region of your service, go in the file `src/helpers/environment.js` and change
 
 ```js
 const region = process.env.AWS_REGION || 'us-east-1'; // us-east-1 to what ever you need
