@@ -44,7 +44,7 @@ exports.load = async () => {
             }
             
         // If it is wanted to run local with stage environment
-        } else if(this.isStageEnvironment()) {
+        } else if(this.isLocalWithAWSEnvironment()) {
             const secretsManager = require('./secretsManager');
             await secretsManager.loadSecrets('dev/keys', 'AWS');
             await secretsManager.loadSecrets('dev/stripe', 'STRIPE');
@@ -57,6 +57,9 @@ exports.isLocalEnvironment = () => {
     return !process.env.ENVIRONMENT || process.env.ENVIRONMENT == 'local';
 }
 // To run locally with AWS services
+exports.isLocalWithAWSEnvironment = () => {
+    return process.env.ENVIRONMENT == 'local_AWS';
+}
 exports.isStageEnvironment = () => {
     return process.env.ENVIRONMENT == 'stage';
 }
