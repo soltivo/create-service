@@ -1,6 +1,6 @@
 {
-  "name": "default",
-  "version": "1.0.0",
+  "name": "name",
+  "version": "0.1.0",
   "description": "",
   "main": "src/app.js",
   "dependencies": {
@@ -15,7 +15,8 @@
   "scripts": {
     "start": "node src/app.js",
     "test": "node src/app.js & mocha src/tests",
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "dev:aws": "env ENVIRONMENT=local_AWS nodemon src/app.js"
   },
   "author": "",
   "license": "ISC",
